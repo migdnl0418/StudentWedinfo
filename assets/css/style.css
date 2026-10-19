@@ -131,7 +131,7 @@ tbody tr:hover {
 }
 
 .btn-edit {
-    background-color:  rgb(125, 176, 235);
+    background-color: rgb(125, 176,  235);
 }
 
 .btn-delete, .btn-cancel {
@@ -186,13 +186,15 @@ overflow: hidden;
 .placeholder {
 position: absolute;
 font-size: 18px;
-bottom: 0;
+bottom: 7px;
 left: 0;
 transition: all 0.3s ease;
 }
 
 .textbox input:focus + .txtbox-label .placeholder,
-.textbox input:valid + .txtbox-label .placeholder
+.textbox input:valid + .txtbox-label .placeholder,
+.option-box select:focus + .txtbox-label .placeholder,
+.option-box select:valid + .txtbox-label .placeholder
 
 {
     transform: translateY(-150%);
@@ -202,7 +204,10 @@ transition: all 0.3s ease;
 }
 
 .textbox input:focus + .txtbox-label::after,
-.textbox input:valid + .txtbox-label::after{
+.textbox input:valid + .txtbox-label::after
+.option-box select:focus + .txtbox-label .placeholder,
+.option-box select:valid + .txtbox-label .placeholder
+{
     transform: translateX(0%);
 }
 
@@ -216,4 +221,32 @@ transition: all 0.3s ease;
 
 .placeholder span {
     color: #130e10;
+}
+/* -------------------- Option Box -------------------- */
+
+.option-box{
+    position: relative;
+    margin: 1rem;
+    overflow: hidden;
+}
+
+.option-box select{
+    width: 100%;
+    height: 58px;
+    padding: 20px 1.8rem 0 0;
+    border: none;
+    color: white;
+    background-color: transparent;
+    font: inherit;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.option-box select:disabled{
+    color: transparent;
+}
+
+.option-box select option{
+    color: white;
+    background-color: #3760b9;
 }
