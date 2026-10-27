@@ -247,6 +247,9 @@ if ($method === "POST") {
         exit;
     }
 
+    $gender = $data["gender"] ?? "";
+    $gender = ["Male" => "M", "Female" => "F", "Transformer" => "T"][$gender] ?? $gender;
+
 
     $sql = "
         INSERT INTO students
@@ -278,8 +281,8 @@ if ($method === "POST") {
         "lastname" => $data["lastname"],
         "firstname" => $data["firstname"],
         "middlename" => $data["middlename"],
-        "gender" => $data["gender"],
-        "acadlevel_id" => $data["acadlevel_id"],
+        "gender" => $gender,
+        "acadlevel_id" => $data["acadlevel_id"] ?? $data["academic_level_id"] ?? null,
         "section_id" => $data["section_id"],
         "email" => $data["email"]
     ]);
@@ -316,6 +319,9 @@ if ($method === "PUT") {
         exit;
     }
 
+    $gender = $data["gender"] ?? "";
+    $gender = ["Male" => "M", "Female" => "F", "Transformer" => "T"][$gender] ?? $gender;
+
 
     $sql = "
         UPDATE students
@@ -338,8 +344,8 @@ if ($method === "PUT") {
         "lastname" => $data["lastname"],
         "firstname" => $data["firstname"],
         "middlename" => $data["middlename"],
-        "gender" => $data["gender"],
-        "acadlevel_id" => $data["acadlevel_id"],
+        "gender" => $gender,
+        "acadlevel_id" => $data["acadlevel_id"] ?? $data["academic_level_id"] ?? null,
         "section_id" => $data["section_id"],
         "email" => $data["email"],
         "id" => $data["id"]
