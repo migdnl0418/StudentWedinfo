@@ -1,7 +1,7 @@
 let students = [];
 let formMode = "Add";
 let selectedStudentID = -1;
-const baseURL = "https://studentinfoapi-7lpw.onrender.com/api/students";
+const baseURL = "http://localhost:5128/api/students";
 
 const $tbody = $("#student-data");
 const $studentSearch = $("#student-search");
@@ -93,8 +93,8 @@ $saveBtn.on("click", function () {
       firstname: $txtFirstname.val(),
       middlename: $txtMiddlename.val(),
       gender: $txtGender.val(),
-      acadlevelid: $txtYearLevel.val(),
-      sectionid: $txtSection.val(),
+      acadlevel_id: $txtYearLevel.val(),
+      section_id: $txtSection.val(),
       email: $txtEmail.val(),
     };
 
@@ -525,7 +525,7 @@ function getAllSections() {
 }
 
 function addStudent(student) {
-  
+  console.log(JSON.stringify(student));
   return $.ajax({
     url: baseURL,
     type: "POST",
@@ -536,6 +536,7 @@ function addStudent(student) {
 }
 
 function editStudent(student) {
+  console.log(JSON.stringify(student));
   return $.ajax({
     url: baseURL,
     type: "PUT",
